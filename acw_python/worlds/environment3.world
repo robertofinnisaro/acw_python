@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+    <world name="default">
+        <!-- A ground plane -->
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+
+         <!-- A light source -->
+        <include>
+            <uri>model://sun</uri>
+        </include>
+
+        <!-- Custom world -->
+        <include>
+            <uri>model://task3_floor</uri>
+        </include>
+    </world>
+</sdf>

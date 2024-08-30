@@ -1,0 +1,21 @@
+<launch>
+    <!-- Declare launch arguments -->
+    <arg name="x" default="-5"/>
+    <arg name="y" default="-8"/>
+    <arg name="z" default="0"/>
+    <arg name="Y" default="-1.5707"/>
+
+    <!-- Include the Gazebo empty_world launch file -->
+    <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py">
+        <arg name="world_name" value="$(find-pkg-share acw_python)/worlds/environment3.world"/>
+    </include>
+
+    <!-- Spawn the robot into Gazebo -->
+    <node
+        pkg="gazebo_ros"
+        exec="spawn_entity.py"
+        name="spawn_urdf"
+        output="screen"
+        args="-file $(find-pkg-share acw_python)/sdf/model.sdf -sdf -model rover -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg Y)">
+    </node>
+</launch>
